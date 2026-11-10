@@ -1,0 +1,104 @@
+{
+ "note": "Each motion, the review shot that films it (test/review/main.lua), and the anime frames it follows, under private/reference/. scripts/motion_sheet.py sets them side by side. A pick is Metal Fox's and stays unless he names it. A motion with no frame of it stays off this list.",
+ "motions": {
+  "stand": {
+   "shot": "idle",
+   "frames": [
+    "anime-body/Goku_amazed_at_the_Kamehameha.jpg",
+    "anime-body/g383-SkeletonCowbowVsGoku.png",
+    "anime-body/e03-Goku_jumps_on_Nimbus_for_the_first_time.png"
+   ]
+  },
+  "walk": {
+   "shot": "walk",
+   "frames": [
+    "anime-body/g022-Goku_walking_on_log.jpg"
+   ],
+   "note": "the one frame of him walking, and it's a balancing step"
+  },
+  "run": {
+   "shot": "run",
+   "frames": [
+    "anime-run/SnowGokuRun.png",
+    "anime-run/GokuRunsOnSnakeWay.png",
+    "anime-run/GokuShowsHisRealSpeed.png"
+   ],
+   "picks": "Metal Fox: arms straight back"
+  },
+  "jump": {
+   "shot": "b-jump-side",
+   "frames": [
+    "anime-moves/jump-airborne-tucked-trap-is-sprung.jpg",
+    "anime-moves/jump-dive-trap-is-sprung.jpg",
+    "anime-body/g042-Gokufall28949812745.jpg",
+    "anime-moves/leap-over-blade-ep5.png"
+   ]
+  },
+  "air-kick": {
+   "shot": "b-kick",
+   "frames": [
+    "anime-moves/kick-impact-nam-ep25.png",
+    "anime-moves/kick-wolf-airborne-emperors-quest.jpg",
+    "anime-body/Goku_kicks_Pilaf_Plane.jpg"
+   ],
+   "dropped": [
+    {
+     "frame": "anime-body/g047-Goku_kicks_the_Giant_Fish.jpg",
+     "why": "Metal Fox: don't use that still"
+    }
+   ]
+  },
+  "lunge": {
+   "shot": "b-lunge",
+   "frames": [
+    "anime-body/Gokuvsoxking.jpg",
+    "anime-body/Goku_kicks_wolf.jpg"
+   ]
+  },
+  "side-kick": {
+   "shot": "b-walk-kick",
+   "frames": [
+    "anime-moves/kick-side-high-vs-nam-ep25.jpg"
+   ]
+  },
+  "fight-stance": {
+   "shot": "match-ready",
+   "frames": [
+    "anime-moves/stance-ready-crouch-ep25.jpg"
+   ],
+   "camera": "turned and as close as its frame"
+  },
+  "jan-ken": {
+   "shot": "b-combo",
+   "frames": [
+    "anime-moves/punch-lunge-giran-ep23.jpg",
+    "anime-body/Goku_punches_a_wolf.jpg",
+    "anime-body/Goku_breaks_an_entire_rock.jpg",
+    "anime-body/YamchaVsGoku.png"
+   ]
+  },
+  "kamehameha": {
+   "shot": "kame-side",
+   "frames": [
+    "anime-body/Goku_trying_the_Kamehameha1.jpg",
+    "anime-body/Goku_trying_the_Kamehameha4.jpg",
+    "anime-body/GokufirstKame.png",
+    "anime-body/e08-MAX_Power_Kamehameha_3.jpg"
+   ]
+  },
+  "nimbus-stand": {
+   "shot": "n-stand-q",
+   "frames": [
+    "anime-body/e03-Goku_jumps_on_Nimbus_for_the_first_time.png",
+    "anime-body/g202-Goku_and_Flying_Nimbus.jpg"
+   ]
+  },
+  "long-jump": {
+   "shot": "long-jump-front",
+   "frames": [
+    "anime-moves/jump-airborne-tucked-trap-is-sprung.jpg"
+   ],
+   "picks": "Metal Fox: the running Z jump"
+  }
+ }
+}

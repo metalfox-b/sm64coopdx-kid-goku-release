@@ -1,0 +1,18 @@
+{
+  "asset": "goku",
+  "port": "sm64coopdx-character",
+  "kind": "character",
+  "mode": "replace",
+  "replaces": "mario_geo (Mario's skeleton through Character Select)",
+  "tris": 4900,
+  "bones": 20,
+  "materials": 12,
+  "textures": [
+    {"name": "goku_eyes_open", "size": "64x32", "format": "RGBA16", "tile": {"s": "clamp", "t": "clamp"}},
+    {"name": "goku_eyes_half", "size": "64x32", "format": "RGBA16", "tile": {"s": "clamp", "t": "clamp"}},
+    {"name": "goku_eyes_closed", "size": "64x32", "format": "RGBA16", "tile": {"s": "clamp", "t": "clamp"}},
+    {"name": "goku_kanji", "size": "32x32", "format": "RGBA16", "tile": {"s": "clamp", "t": "clamp"}}
+  ],
+  "untextured": ["hair", "skin", "gi", "belt", "wristbands", "shoes", "tail", "pole"],
+  "joints": null
+}

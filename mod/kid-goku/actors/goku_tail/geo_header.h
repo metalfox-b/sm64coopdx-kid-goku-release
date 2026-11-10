@@ -1,0 +1,12 @@
+extern const GeoLayout goku_tail_geo[];
+extern u8 goku_tail_goku_ramp_tail_rgba16_rgba16[];
+extern Vtx goku_tail_goku_tail_mesh_layer_3_vtx_0[205];
+extern Gfx goku_tail_goku_tail_mesh_layer_3_tri_0[];
+extern Vtx goku_tail_goku_tail_mesh_layer_1_vtx_0[431];
+extern Gfx goku_tail_goku_tail_mesh_layer_1_tri_0[];
+extern Gfx mat_goku_tail_Tail[];
+extern Gfx mat_revert_goku_tail_Tail[];
+extern Gfx mat_goku_tail_Tail_Outline_layer1[];
+extern Gfx mat_revert_goku_tail_Tail_Outline_layer1[];
+extern Gfx goku_tail_goku_tail_mesh_layer_3_with_revert[];
+extern Gfx goku_tail_goku_tail_mesh_layer_1_with_revert[];

@@ -1,0 +1,22 @@
+{
+ "about": "Motions Metal Fox kept: each clip in mod/kid-goku/anims-data.lua as he saw it, with his words. scripts/check-motions.mjs holds them; only his words unlock one.",
+ "motions": {},
+ "unlocked": [
+  {
+   "motion": "side_kick_in",
+   "said": "Metal Fox, 2026-11-07, of the side kick copied bone by bone from the Meshy 7.1 figure of kick-side-high-vs-nam-ep25: Yes, Put It In"
+  },
+  {
+   "motion": "side_kick_out",
+   "said": "Metal Fox, 2026-11-07, of the side kick copied bone by bone from the Meshy 7.1 figure of kick-side-high-vs-nam-ep25: Yes, Put It In"
+  },
+  {
+   "motion": "side_kick2_in",
+   "said": "Metal Fox, 2026-11-07, of the side kick copied bone by bone from the Meshy 7.1 figure of kick-side-high-vs-nam-ep25: Yes, Put It In"
+  },
+  {
+   "motion": "side_kick2_out",
+   "said": "Metal Fox, 2026-11-07, of the side kick copied bone by bone from the Meshy 7.1 figure of kick-side-high-vs-nam-ep25: Yes, Put It In"
+  }
+ ]
+}

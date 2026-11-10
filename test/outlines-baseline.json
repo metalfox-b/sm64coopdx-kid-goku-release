@@ -1,0 +1,20 @@
+{
+  "speck": 2098,
+  "dash": 1388,
+  "dots": 404,
+  "gap": 521,
+  "double": 815,
+  "float": 1489,
+  "butt line width": 5,
+  "torso line width": 4.7,
+  "head line width": 5,
+  "arm line width": 4.7,
+  "forearm line width": 4.7,
+  "hand line width": 5,
+  "thigh line width": 4.7,
+  "leg line width": 4.7,
+  "shoe line width": 5.3,
+  "tail line width": 7.9,
+  "chin line width": 3.5,
+  "pole line width": 3
+}

@@ -1,0 +1,8 @@
+private/
+mod/kid-goku/sound/
+.DS_Store
+*.blend1
+mod/kid-goku/actors/goku/
+mod/kid-goku/actors/goku_turtle/
+__pycache__/
+dist/

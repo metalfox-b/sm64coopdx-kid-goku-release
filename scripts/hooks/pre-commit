@@ -1,0 +1,3 @@
+#!/bin/sh
+root=$(git rev-parse --show-toplevel)
+node "$root/scripts/check-faces.mjs" && node "$root/scripts/check-motions.mjs" && node --test "$root"/test/tools/*.test.mjs

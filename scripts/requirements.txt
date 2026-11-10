@@ -1,0 +1,6 @@
+Pillow
+resvg-py==0.5.0
+shapely==2.2.0
+soundfile>=0.13
+numpy
+scipy

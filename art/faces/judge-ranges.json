@@ -1,0 +1,85 @@
+{
+ "note": "What the faces Metal Fox has passed measure, from judge_face.py calibrate. Numbers only.",
+ "ranges": {
+  "brow_ink": [
+   350.9200000000001,
+   11739.08
+  ],
+  "brow_on_eye": [
+   -0.008807339449541285,
+   0.08220183486238533
+  ],
+  "brow_slope": [
+   -0.3085310138882969,
+   0.702989017340473
+  ],
+  "eyes_seen": [
+   1.88,
+   2.12
+  ],
+  "mouth_area": [
+   553.6000000000001,
+   17101.4
+  ],
+  "mouth_aspect": [
+   0.37409961685823756,
+   4.347484035759898
+  ],
+  "mouth_bottom": [
+   59.08,
+   113.42
+  ],
+  "mouth_lift": [
+   5.998317241379304,
+   41.562372413793135
+  ],
+  "mouth_off_middle": [
+   -2.0868517233622197,
+   20.48873411321735
+  ],
+  "mouth_tall": [
+   48.72,
+   93.28
+  ],
+  "mouth_teeth_share": [
+   -0.033996529786003475,
+   0.31730094466936576
+  ],
+  "mouth_tongue_share": [
+   -0.0404881472678367,
+   0.9156237300644111
+  ],
+  "mouth_top": [
+   9.4,
+   31.1
+  ],
+  "mouth_wide": [
+   20.96,
+   259.04
+  ],
+  "white_area": [
+   7266.38,
+   13305.12
+  ],
+  "white_gap": [
+   51.74,
+   75.26
+  ],
+  "white_tall": [
+   0.8557130900569133,
+   1.559126213592233
+  ],
+  "white_wide": [
+   95.98,
+   124.02
+  ]
+ },
+ "measures": {
+  "old_builds": "caught 7 of 13 rejected; 6 of 13 passed flagged when each is left out of the ranges",
+  "same_build": "caught 2 of 4 rejected"
+ },
+ "blind_reviewer": {
+  "old_builds": "caught 12 of 13 rejected; flagged 3 of 7 passed (older pictures may have helped it)",
+  "same_build": "caught 3 of 4 rejected; flagged 2 of 7 passed: yell, shout"
+ }
+}

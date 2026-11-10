@@ -1,0 +1,10 @@
+extern const GeoLayout goku_nimbus_geo[];
+extern Vtx goku_nimbus_goku_nimbus_mesh_layer_1_vtx_0[1969];
+extern Gfx goku_nimbus_goku_nimbus_mesh_layer_1_tri_0[];
+extern Vtx goku_nimbus_goku_nimbus_mesh_layer_1_vtx_1[1969];
+extern Gfx goku_nimbus_goku_nimbus_mesh_layer_1_tri_1[];
+extern Gfx mat_goku_nimbus_Nimbus[];
+extern Gfx mat_revert_goku_nimbus_Nimbus[];
+extern Gfx mat_goku_nimbus_Nimbus_Line[];
+extern Gfx mat_revert_goku_nimbus_Nimbus_Line[];
+extern Gfx goku_nimbus_goku_nimbus_mesh_layer_1_with_revert[];

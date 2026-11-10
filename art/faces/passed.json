@@ -1,0 +1,105 @@
+{
+ "faces": {
+  "relaxed": {
+   "svg": "0abd8f434186a80f76467ae9ff0f168c9515fba14dfdbc8a25d1b4350466dcef",
+   "head": null,
+   "texture": "3be974ca31760c2e43deb7d52b8c46e42b5c1920be1e839038a7fc5c4ed49c10"
+  },
+  "half": {
+   "svg": "1c38e19595f562c2e01a21750504e3ca6e561fa791017a79278371754d1916fb",
+   "head": null,
+   "texture": "102566dcee237d9c01bd89e7f8ea3a8a5bcd1ca40dc2bf3ee9fee047cd212343"
+  },
+  "closed": {
+   "svg": "9b8d2650f0bdcf0e72247ad8529950c25f4a59e486aa4721a050b9cc388f5362",
+   "head": null,
+   "texture": "aa8c02b44319a33a719c22eb5e77ebc9ea93c780871915a42e8d825dd0a4d881"
+  },
+  "determined": {
+   "svg": "91ba3b0a5e21afe2465b4e539167cac15b2841894a704de4a516ba91747e4883",
+   "head": null,
+   "texture": "7cfe256c941d922c7477aa5b4c4ab72bb765bb81a9719a624c3352d65bc73c18"
+  },
+  "shout": {
+   "svg": "eedb3dc2a16c415fc0b2e2f9fde1656850c868b6e0508aade5f560253780f84f",
+   "head": null,
+   "texture": "13bc1a43110776858c9ed070072b33b5e80e9081f212c9407d8cff596ea062d2"
+  },
+  "surprised": {
+   "svg": "bcf84e56d495a946cd9abe5ae49df226465309aa6c10e5f5b60abbe8c62cd5e2",
+   "head": null,
+   "texture": "5214b681faa3b0a1914b00d4a81b741d77a88eb43239a8fb300481b7191a276a"
+  },
+  "happy": {
+   "svg": "bca3b81b2396559b5ef0d60b2a88f73d9fde99623c458ad2c92506dcfaf03a2a",
+   "head": null,
+   "texture": "1a7d4d768f766fef259f8bd9e1e92e19025777eac42bd8e02d2d3ce23934fde0"
+  },
+  "dead": {
+   "svg": "0ad73a03e4e0e882568a7b392e9896fb4a64d0c980291db6a98992ad666d0341",
+   "head": null,
+   "texture": "582ea3b636dd6595c3ac5c43bc1d8581b313aee68b452f770dacc41cab5ae985"
+  },
+  "blink_half": {
+   "svg": "4218133a4f2d742c3bcd73e9e3109868c86cf1f87012239759cdd0fbf4e9c6fb",
+   "head": null,
+   "texture": "9ddc25c6dbebd79a145a6c7940618c574d8bb76d9fa40f4e2bfbc127b7f74531"
+  },
+  "blink": {
+   "svg": "cdf4cd5dfd36f8574b73e6e9b62723ecacf8317c8948ff6048083a9c8943df70",
+   "head": null,
+   "texture": "4bd26b9c6cf9dfd1b3323b75b8174cd5ad669f28bfaad0cbcd30403afca2068c"
+  },
+  "smile": {
+   "svg": "d66e973ffd61867155c43aaf0911cc8e1a6e4c2bedc9723fe161b156b5bb8a6d",
+   "head": null,
+   "texture": "1998a143e32428e7ad2bce8bdc7db4607a62fc2abf41fc9509da898c66d61946"
+  },
+  "yell": {
+   "svg": "7797b4f41cf5f8b8ed26bfb6bd2cc70c4dbcf9cbb346afcd750c499e82f65f89",
+   "head": null,
+   "texture": "b62e096ab211af4780c3314cadeb194ded05d24ffc2205eba03164bdf96ba37c"
+  },
+  "cheer": {
+   "svg": "545670721e6817fe3aa8520dfda5d34830cdd5f8d99d83b7f2288176d05fa955",
+   "head": null,
+   "texture": "1037c677d683b1dc76a52c20f81174b492939f69ff073b44798763b66a110bac"
+  }
+ },
+ "log": [
+  {
+   "note": "The faces he passed by 2026-11-04, from commit ac19a3d; cheer from ADR 0015. He has since called shout inaccurate in the palm strike, and it stays his last passed version until he says otherwise.",
+   "on": "2026-11-05"
+  },
+  {
+   "pass": "yell",
+   "said": "Yes, it passes",
+   "on": "2026-11-05"
+  },
+  {
+   "note": "Textures fingerprinted from the build whose 17 face textures are pixel-identical to zip 42.",
+   "on": "2026-11-05"
+  },
+  {
+   "shadow_changed": true,
+   "said": "Please fix those graphics faults.",
+   "on": "2026-11-05"
+  },
+  {
+   "shadow_changed": true,
+   "said": "Study all the stills and figure out how to get the two tone shading on the whole model as well as the face in a nice seamless way",
+   "on": "2026-11-10"
+  },
+  {
+   "unlock": "cheer",
+   "said": "This Cheer is really bizarre. long head. mouth too low. eyes too low. weird",
+   "on": "2026-11-10"
+  },
+  {
+   "pass": "cheer",
+   "said": "Yes, It Passes",
+   "on": "2026-11-10"
+  }
+ ],
+ "shared": "7faefaac0abc0ab636cae77b9c6e61416b6a3fee05da20cc40774f775c64ecdbSKIN_SHADOW = (215, 152, 133)"
+}

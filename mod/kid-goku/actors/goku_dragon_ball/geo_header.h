@@ -1,0 +1,18 @@
+extern const GeoLayout goku_dragon_ball_geo[];
+extern Vtx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_vtx_0[519];
+extern Gfx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_tri_0[];
+extern Vtx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_vtx_1[86];
+extern Gfx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_tri_1[];
+extern Vtx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_vtx_2[128];
+extern Gfx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_tri_2[];
+extern Vtx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_vtx_3[89];
+extern Gfx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_tri_3[];
+extern Gfx mat_goku_dragon_ball_Dragon_Ball[];
+extern Gfx mat_revert_goku_dragon_ball_Dragon_Ball[];
+extern Gfx mat_goku_dragon_ball_Dragon_Ball_Light[];
+extern Gfx mat_revert_goku_dragon_ball_Dragon_Ball_Light[];
+extern Gfx mat_goku_dragon_ball_Dragon_Ball_Line[];
+extern Gfx mat_revert_goku_dragon_ball_Dragon_Ball_Line[];
+extern Gfx mat_goku_dragon_ball_Dragon_Ball_Star[];
+extern Gfx mat_revert_goku_dragon_ball_Dragon_Ball_Star[];
+extern Gfx goku_dragon_ball_goku_dragon_ball_mesh_layer_1_with_revert[];
