@@ -425,6 +425,47 @@ forced("hang", ACT_LEDGE_GRAB, 24)
 forced("hold", ACT_HOLD_IDLE, 24)
 forced("swim", ACT_WATER_IDLE, 24)
 
+local function who(name)
+    return function()
+        local n = _G.charSelect.character_get_number_from_string(name)
+        _G.charSelect.character_set_current_number(n, 1)
+    end
+end
+local tree, king = nil, nil
+for _, c in ipairs({{"", "Kid Goku"}, {"-mario", "Mario"}}) do
+    local swap, back = {{6, who(c[2])}}, {1, who("Kid Goku")}
+
+    shot("r-tree" .. c[1], QUARTER, 380, 130, 100, {
+        {1, function(m)
+            local yaw = m.faceAngle.y
+            tree = spawn_non_sync_object(id_bhvTree, E_MODEL_BUBBLY_TREE, m.pos.x + sins(yaw) * 330, m.pos.y, m.pos.z + coss(yaw) * 330, nil)
+        end},
+        {14, function(m) run_stick(m, 64) end},
+        {1, function() press(A_BUTTON) end},
+        {30, function(m) run_stick(m, 64) end},
+        {40, function() input.x, input.y = 0, 0 end},
+        {30, function(m) input.x, input.y = 0, 64 end},
+        {50, function() input.x, input.y = 0, 0 end},
+        {1, function(m) if tree then obj_mark_for_deletion(tree) end; set_mario_action(m, ACT_IDLE, 0) end},
+        back,
+    }, nil, swap)
+
+    for _, view in ipairs({{"", 0x3000}, {"-back", BACK}, {"-side", 0x6000}}) do
+    shot("r-grabbed" .. c[1] .. view[1], view[2], 560, 190, 120, {
+        {1, function(m)
+            local yaw = m.faceAngle.y
+            king = spawn_non_sync_object(id_bhvKingBobomb, E_MODEL_KING_BOBOMB, m.pos.x + sins(yaw) * 420, m.pos.y, m.pos.z + coss(yaw) * 420, function(k)
+                k.oMoveAngleYaw = yaw + 0x8000
+                k.oAction = 2
+            end)
+        end},
+        {260, function(m) if get_dialog_id() >= 0 then input.pressed = A_BUTTON end end},
+        {1, function(m) if king then obj_mark_for_deletion(king) end; set_mario_action(m, ACT_IDLE, 0) end},
+        back,
+    }, nil, swap)
+    end
+end
+
 local ACT_REVIEW_HOLD = allocate_mario_action(ACT_GROUP_STATIONARY | ACT_FLAG_STATIONARY)
 hook_mario_action(ACT_REVIEW_HOLD, function(m) return 0 end)
 local held = nil

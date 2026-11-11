@@ -31,7 +31,7 @@ const env = {...process.env, ...(turntable ? {POSE_PREVIEW_TURNTABLE: turntable}
   ...(args.includes('--show-failing') ? {POSE_PREVIEW_SHOW_FAILING: '1'} : {})};
 let log;
 try {
-  log = execFileSync(blender, ['-b', model, '--python', join(root, 'scripts', 'blender', 'pose_preview.py'), '--',
+  log = execFileSync(blender, ['-b', model, '--addons', 'fast64', '--python', join(root, 'scripts', 'blender', 'pose_preview.py'), '--',
     fitted ? resolve(motion) : motion, String(at), out, hand, face, ...(frame ? [resolve(frame)] : [])], {encoding: 'utf8', maxBuffer: 64 << 20, timeout: 300000, env});
 } catch (err) {
   log = String(err.stdout ?? '') + String(err.stderr ?? '');

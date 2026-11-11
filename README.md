@@ -11,7 +11,7 @@ You need:
 
 Then:
 
-1. Download `kid-goku-v1.0.0.zip` from this repository's Releases.
+1. Download `kid-goku-v1.0.1.zip` from this repository's Releases.
 2. Unzip it into sm64coopdx's mods folder, so that the folder holds `kid-goku/main.lua`:
    - Windows: `%appdata%\sm64coopdx\mods`
    - macOS: `~/Library/Application Support/sm64coopdx/mods`

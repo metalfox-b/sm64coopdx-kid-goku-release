@@ -726,6 +726,50 @@ def climb(t):
                  "r_hip": (50 - 20 * a, 10, 0), "l_knee": 80, "r_knee": 80})
 
 
+POLE = {"root": (0, 0.89, -0.47), "pelvis": (2, 13, -9), "torso": (-22, 15, -1), "head": (6, 0, 0),
+        "l_arm": (68, 2, 64), "r_arm": (102, 6, 53), "l_elbow": 51, "r_elbow": 37,
+        "l_hand": (6, 21), "l_wrist": -63, "r_hand": (-22, 11), "r_wrist": 47,
+        "l_hip": (86, -14, 0), "r_hip": (64, 23, -24), "l_knee": 77, "r_knee": 68, "l_foot": 41, "r_foot": 28}
+POLE_REACH = {**POLE, "root": (-0.23, 0.89, -0.89), "pelvis": (29, 16, -2), "torso": (-15, 16, -3),
+              "l_arm": (86, -5, 55), "r_arm": (98, 6, 38), "l_elbow": 29, "r_elbow": 29,
+              "l_hand": (14, 16), "l_wrist": -62, "r_hand": (21, 8), "r_wrist": 19,
+              "l_hip": (52, 13, 10), "r_hip": (37, 8, -29), "l_knee": 77, "r_knee": 79, "l_foot": 52, "r_foot": 16}
+POLE_SWING = {**POLE_REACH, "root": (0.28, 1.37, -0.94), "pelvis": (29, 16, -25), "torso": (-22, 15, -1),
+              "l_hip": (72, 50, 28), "r_hip": (43, -2, -29)}
+POLE_SWING_MID = {**POLE_REACH, "root": (0.12, 1.11, -0.69), "pelvis": (15, 15, -16), "torso": (-22, 15, -1),
+                  "l_arm": (76, -1, 60), "r_arm": (100, 6, 46), "l_elbow": 41, "r_elbow": 33,
+                  "l_hand": (10, 19), "l_wrist": -62, "r_hand": (-2, 10), "r_wrist": 34,
+                  "l_hip": (52, 27, 5), "r_hip": (113, 43, -4), "l_knee": 77, "r_knee": 93, "l_foot": 11, "r_foot": 21}
+POLE_CLIMB_KEYS = [
+    {**POLE},
+    {**POLE, "root": (0, 0.89, -0.51), "pelvis": (-12, 10, -12), "torso": (2, 11, 5), "r_arm": (90, 15, 50), "r_elbow": 55,
+     "l_hip": (96, 13, -13), "r_hip": (96, 49, -11), "l_knee": 88, "r_knee": 92, "l_foot": 31, "r_foot": 23},
+    {**POLE, "root": (0, 0.89, -0.55), "pelvis": (-25, 8, -14), "torso": (25, 7, 10), "r_arm": (79, 23, 47), "r_elbow": 72,
+     "l_hip": (102, 10, -16), "r_hip": (105, 33, -13), "l_knee": 97, "r_knee": 113, "l_foot": 45, "r_foot": 19},
+    {**POLE, "root": (0, 0.89, -0.51), "pelvis": (-11, 11, -12), "torso": (1, 11, 4), "r_arm": (90, 13, 50), "r_elbow": 54,
+     "l_hip": (92, -4, -7), "r_hip": (81, 26, -20), "l_knee": 86, "r_knee": 88, "l_foot": 44, "r_foot": 24},
+]
+
+
+def pole_climb(t):
+    return keys(*[(i / len(POLE_CLIMB_KEYS), q) for i, q in enumerate(POLE_CLIMB_KEYS)], loop=True)(t)
+
+
+GRABBED = {"root": (0, 0.12, -0.1), "pelvis": (-44, 0, 0), "torso": (-6, 0, 0), "head": (22, 0, 0),
+           "l_arm": (152, 78, 0), "r_arm": (132, 78, 0), "l_elbow": 30, "r_elbow": 36,
+           "l_hip": (58, 30, -10), "r_hip": (46, 30, -10), "l_knee": 72, "r_knee": 64, "l_foot": 30, "r_foot": 30}
+
+
+def grabbed(t):
+    a = math.sin(t * 2 * math.pi)
+    b = math.sin(t * 2 * math.pi + 2.1)
+    return full({**GRABBED, "pelvis": (-44 + 4 * a, 5 * b, 0), "torso": (-6, 8 * b, 5 * a), "head": (22, -12 * a, 0),
+                 "l_arm": (152 + 22 * a, 78 + 10 * b, 0), "r_arm": (132 - 22 * a, 78 - 10 * b, 0),
+                 "l_elbow": 30 - 14 * a, "r_elbow": 36 + 14 * a,
+                 "l_hip": (58 + 20 * b, 30, -10), "r_hip": (46 - 20 * b, 30, -10),
+                 "l_knee": 72 + 20 * b, "r_knee": 64 - 14 * b})
+
+
 def ledge_climb(t):
     return glide(10, (0, HANG), (0.5, {**CROUCH, "root": (0, 0.6, 0)}), (1, STAND))(t)
 
@@ -1128,6 +1172,8 @@ S = {
     "kb_back": knockback(True, False), "kb_front": knockback(False, False), "kb_air_back": knockback(True, True),
     "kb_air_front": knockback(False, True), "lying_back": pose(LYING_BACK), "lying_front": pose(LYING_FRONT),
     "dying": dying, "hang": pose(HANG), "climb": climb, "ledge_climb": ledge_climb, "swim": swim,
+    "pole": pose(POLE), "pole_grab": glide(12, (0, POLE_REACH), (1, POLE)), "pole_climb": pole_climb, "grabbed": grabbed,
+    "pole_swing": glide(20, (0, POLE_SWING), (0.5, POLE_SWING_MID), (1, POLE)),
     "flutter": flutter, "tread": tread, "star": star_dance, "scratch": scratch_head, "sleep": sleep_sit,
     "tired": tired, "yawn": yawn, "wake_sitting": from_frame(wake_sitting, 6, 26), "wake_lying": wake_lying, "door_push": door_push, "door_pull": door_pull,
     "sit_down": sit_down, "lie_down": lie_down, "sleep_back": sleep_back, "panting": panting,
@@ -1145,7 +1191,7 @@ S = {
     "hold_land": carrying(land), "hold_slide": carrying(slide), "hold_stand_up": carrying(glide(16, (0, CROUCH), (1, STAND))),
 }
 LENGTHS = {"AIR_KICK": 32, "DOUBLE_JUMP_RISE": 20, "DOUBLE_JUMP_FALL": 30, "WAKE_FROM_SLEEP": 26, "TIPTOE": 116}
-LOOPING = {"idle", "look_l", "look_r", "walk", "run", "tiptoe", "tiptoe_step", "crawl", "climb", "swim", "flutter", "tread", "fall",
+LOOPING = {"pole_climb", "grabbed", "idle", "look_l", "look_r", "walk", "run", "tiptoe", "tiptoe_step", "crawl", "climb", "swim", "flutter", "tread", "fall",
            "sleep_back", "panting", "burn", "nimbus_lie", "fight_ready",
            "sleep", "shiver", "shocked", "push", "wave", "stuck_head", "stuck_legs", "hold_walk", "hold_run",
            "heavy_walk", "hold_fall", "wing", "nimbus_stand", "nimbus_ride", "nimbus_fly", "menu", "scratch", "slide", "superman"}
@@ -1176,9 +1222,9 @@ SLOTS = {
     "DYING_FALL_OVER": "dying", "ELECTROCUTION": "shocked", "SHOCKED": "shocked", "FIRE_LAVA_BURN": "burn",
     "STAND_UP_FROM_LAVA_BOOST": "crouch_out",
     "IDLE_ON_LEDGE": "hang", "SLOW_LEDGE_GRAB": "hang", "FAST_LEDGE_GRAB": "hang", "CLIMB_DOWN_LEDGE": "ledge_climb",
-    "HANG_ON_CEILING": "hang", "HANG_ON_OWL": "hang", "BEING_GRABBED": "hang",
-    "CLIMB_UP_POLE": "climb", "GRAB_POLE_SHORT": "hang", "GRAB_POLE_SWING_PART1": "hang",
-    "GRAB_POLE_SWING_PART2": "hang", "IDLE_ON_POLE": "hang", "MOVE_ON_WIRE_NET_RIGHT": "climb",
+    "HANG_ON_CEILING": "hang", "HANG_ON_OWL": "hang", "BEING_GRABBED": "grabbed",
+    "CLIMB_UP_POLE": "pole_climb", "GRAB_POLE_SHORT": "pole_grab", "GRAB_POLE_SWING_PART1": "pole_swing",
+    "GRAB_POLE_SWING_PART2": "pole_swing", "IDLE_ON_POLE": "pole", "MOVE_ON_WIRE_NET_RIGHT": "climb",
     "MOVE_ON_WIRE_NET_LEFT": "climb",
     "SWIM_PART1": "swim", "SWIM_PART2": "swim", "FLUTTERKICK": "flutter", "WATER_IDLE": "tread",
     "WATER_ACTION_END": "tread", "SWIM_WITH_OBJ_PART1": "swim", "SWIM_WITH_OBJ_PART2": "swim",
