@@ -874,7 +874,10 @@ def main() -> int:
         f.tex0.ci_format = "RGBA16"
         f.tex0.S.clamp, f.tex0.T.clamp = True, False
         f.tex0.S.mirror, f.tex0.T.mirror = False, False
-        goku.COLORS[mat] = goku.COLORS["BT3 8"]
+        c = f.combiner1
+        c.A, c.B, c.C, c.D = "TEXEL0", "0", "SHADE", "0"
+        c.A_alpha, c.B_alpha, c.C_alpha, c.D_alpha = "0", "0", "0", "ENVIRONMENT"
+        goku.COLORS[mat] = ("FFFFFF", "FFFFFF")
     goku.COLORS.update(TENKAICHI)
     if goku.OUTFIT == "pilaf":
         goku.COLORS.update(PILAF)

@@ -1191,6 +1191,7 @@ S = {
     "hold_land": carrying(land), "hold_slide": carrying(slide), "hold_stand_up": carrying(glide(16, (0, CROUCH), (1, STAND))),
 }
 LENGTHS = {"AIR_KICK": 32, "DOUBLE_JUMP_RISE": 20, "DOUBLE_JUMP_FALL": 30, "WAKE_FROM_SLEEP": 26, "TIPTOE": 116}
+BACKWARD = {"RETURN_FROM_HANDSTAND": 17}
 LOOPING = {"pole_climb", "grabbed", "idle", "look_l", "look_r", "walk", "run", "tiptoe", "tiptoe_step", "crawl", "climb", "swim", "flutter", "tread", "fall",
            "sleep_back", "panting", "burn", "nimbus_lie", "fight_ready",
            "sleep", "shiver", "shocked", "push", "wave", "stuck_head", "stuck_legs", "hold_walk", "hold_run",
@@ -1281,11 +1282,16 @@ def slot_motion(name: str) -> str:
 ROOT_WALKS = (door_push, door_pull)
 
 
-def encode(name: str, motion, frames: int, loop: bool) -> str:
+def encode(name: str, motion, frames: int, loop: bool, backward: bool = False) -> str:
     """One smlua_anim_util_register_animation call; constant channels are stored once."""
     frames = max(frames, 1)
     compat = {}
-    samples = [channels(motion(f / frames if loop else f / max(frames - 1, 1)), compat) for f in range(frames)]
+
+    def at(f):
+        if backward:
+            f = frames - 1 - f
+        return motion(f / frames if loop else f / max(frames - 1, 1))
+    samples = [channels(at(f), compat) for f in range(frames)]
     values, index = [], []
     for c in range(63):
         col = [samples[f][c] & 0xFFFF for f in range(frames)]
@@ -1297,10 +1303,12 @@ def encode(name: str, motion, frames: int, loop: bool) -> str:
     walks = motion in ROOT_WALKS
     if walks:
         flags |= 8
-    yaws = [round(motion(f / frames if loop else f / max(frames - 1, 1)).get("yaw", 0) * 65536 / 360) for f in range(frames)]
+    if backward:
+        flags |= 2
+    yaws = [round(at(f).get("yaw", 0) * 65536 / 360) for f in range(frames)]
     turns = f"GOKU_CLIP_YAW['{name}'] = {{{','.join(map(str, yaws))}}}\n" if any(yaws) else ""
     return (f"do local v, i = {{{','.join(map(str, values))}}},\n    {{{','.join(map(str, index))}}}\n"
-            f"smlua_anim_util_register_animation('{name}', {flags}, 0, 0, 0, {frames}, v, i)\n"
+            f"smlua_anim_util_register_animation('{name}', {flags}, 0, {frames - 1 if backward else 0}, 0, {frames}, v, i)\n"
             f"GOKU_ANIMS['{name}'] = true\nGOKU_CLIPS['{name}'] = {{v, i{', walks = true' if walks else ''}}} end\n{turns}")
 
 
@@ -1399,12 +1407,13 @@ def main() -> int:
     done = {}
     for slot, cid in sorted(ids.items(), key=lambda kv: kv[1]):
         t = timing.get(f"{cid:02X}", {})
-        frames = LENGTHS.get(slot) or int(t.get("loopEnd", 30)) or 30
+        backward = slot in BACKWARD
+        frames = BACKWARD.get(slot) or LENGTHS.get(slot) or int(t.get("loopEnd", 30)) or 30
         motion = slot_motion(slot)
         loop = motion in LOOPING
-        key = f"goku_{motion}_{frames}"
+        key = f"goku_{motion}_{frames}" + ("_back" if backward else "")
         if key not in done:
-            out.append(encode(key, S[motion], frames, loop))
+            out.append(encode(key, S[motion], frames, loop, backward))
             done[key] = True
         out.append(f"GOKU_SLOT_ANIMS[{cid}] = '{key}' -- {slot}\n")
     for motion, frames in (("kame_charge", CHARGE_DRAW + CHARGE_HOLD), ("kame_fire", THRUST + BRACE + RECOVER),
