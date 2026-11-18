@@ -1,4 +1,4 @@
--- name: [CS] Kid Goku
+-- name: [CS] Kid Goku 1.0.2
 -- description: Kid Goku from the original Dragon Ball, in his Pilaf-saga gi.\n\nB: Jan Ken combo, hold for the Kamehameha\nY: Flying Nimbus\n\nHis voice is Japanese, or English in this mod's menu.\n\n\\#ff7777\\Requires Character Select.
 
 local TEXT_MOD_NAME = get_active_mod().name
